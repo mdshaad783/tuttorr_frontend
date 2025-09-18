@@ -13,7 +13,8 @@ import {
   AiOutlineUnorderedList,
   AiOutlineUser,
   AiOutlineUserAdd,
-  AiOutlineArrowRight
+  AiOutlineArrowRight,
+  AiOutlinePlus, AiOutlineTeam
 } from "react-icons/ai";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice";
 import { logout } from "../../redux/features/auth/authSlice";
@@ -30,7 +31,6 @@ const Navigation = () => {
   
   const navItems = [
     { name: "Dashboard", icon: AiOutlineHome, path: "/" },
-    { name: "Courses", icon: AiOutlineBook, path: "/courses" },
     { name: "Assignments", icon: AiOutlineUnorderedList, path: "/assignments" },
     { name: "Announcement", icon: AiOutlineMessage, path: "/announcement" },
   ];
@@ -66,7 +66,38 @@ const logoutHandler = async() =>{
                 </Link>
               </li>
             ))}
-          </ul>
+          
+
+
+          {(userInfo?.role === "admin" || userInfo?.role === "teacher") && (
+           
+            <li className="list-none">
+              <Link to="/authority/add-assignments"
+                  className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
+                    location.pathname === "/add-assignments"
+                      ? "bg-blue-50 text-blue-600"
+                      : ""
+                  }`}>
+                  <AiOutlinePlus className="w-5 h-5 mr-3" />
+                  Add Assignments
+              </Link>
+            </li>
+          )}
+          {(userInfo?.role === "admin") && (
+           
+            <li className="list-none">
+              <Link to="/admin/all-users"
+                  className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
+                    location.pathname === "/admin/all-users"
+                      ? "bg-blue-50 text-blue-600" : ""
+                  }`}>
+                  <AiOutlineTeam className="w-5 h-5 mr-3" />
+                  All Users
+              </Link>
+            </li>
+          )}
+
+          
           {!userInfo && (
             <ul className="space-y-3">
               <li>
@@ -74,8 +105,7 @@ const logoutHandler = async() =>{
                   to="/login"
                   className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
                     location.pathname === "/login"
-                      ? "bg-blue-50 text-blue-600"
-                      : ""
+                      ? "bg-blue-50 text-blue-600" : ""
                   }`}
                 >
                   <AiOutlineLogin className="w-5 h-5 mr-3" />
@@ -88,8 +118,7 @@ const logoutHandler = async() =>{
                   to="/register"
                   className={`flex items-center w-full p-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
                     location.pathname === "/register"
-                      ? "bg-blue-50 text-blue-600"
-                      : ""
+                      ? "bg-blue-50 text-blue-600" : ""
                   }`}
                 >
                   <AiOutlineUserAdd className="w-5 h-5 mr-3" />
@@ -107,6 +136,7 @@ const logoutHandler = async() =>{
                   <AiOutlineUser className="w-5 h-5 mr-3" />
                   {userInfo.username}<AiOutlineArrowRight className="ml-2" />
                 </button>)}
+          </ul>
         </nav>
       </aside>
 
@@ -148,6 +178,34 @@ const logoutHandler = async() =>{
                     </Link>
                   </li>
                 ))}
+                {(userInfo?.role === "admin" || userInfo?.role === "teacher") && (
+           
+            <li className="list-none">
+              <Link to="/add-assignments"
+                  className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
+                    location.pathname === "/login"
+                      ? "bg-blue-50 text-blue-600"
+                      : ""
+                  }`}>
+                  <AiOutlinePlus className="w-5 h-5 mr-3" />
+                  Add Assignments
+              </Link>
+            </li>
+          )}
+          {(userInfo?.role === "admin") && (
+           
+            <li className="list-none">
+              <Link to="/admin/all-users"
+                  className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
+                    location.pathname === "admin/all-users"
+                      ? "bg-blue-50 text-blue-600"
+                      : ""
+                  }`}>
+                  <AiOutlineTeam className="w-5 h-5 mr-3" />
+                  All Users
+              </Link>
+            </li>
+          )}
               {!userInfo && (
             <ul className="space-y-3">
               <li>

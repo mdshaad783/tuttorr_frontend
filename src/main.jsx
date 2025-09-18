@@ -7,6 +7,12 @@ import store from './redux/store.js'
 import Login from './pages/Auth/Login.jsx'
 import Register from './pages/Auth/Register.jsx'
 import Dashboard from './pages/User/Dashboard.jsx'
+import AllUsers from './pages/Admin/AllUsers.jsx'
+import AdminRoute from './pages/Admin/AdminRoute.jsx'
+import AuthorityRoute from './pages/Authority/AuthorityRoute.jsx'
+import Assignments from './pages/User/Assignments.jsx'
+import Announcement from './pages/User/Announcement.jsx'
+import AddAssignments from './pages/Admin/AddAssignments.jsx'
 
 
 
@@ -16,7 +22,14 @@ const router = createBrowserRouter(
       <Route index element={<Dashboard />} />
       <Route path = 'login' element={<Login/>}/>
       <Route path = 'register' element={<Register/>}/>
-      <Route path = 'courses' element={<Register/>}/>
+      <Route path = 'announcement' element={<Announcement/>}/>
+      <Route path = 'assignments' element={<Assignments/>}/>
+      <Route path='/admin' element={<AdminRoute/>}>
+        <Route path='all-users' element={<AllUsers/>}/>
+      </Route>
+      <Route path='/authority' element={<AuthorityRoute/>}>
+        <Route path='add-assignments' element={<AddAssignments/>}/>
+      </Route>
     </Route>
   )
 )
