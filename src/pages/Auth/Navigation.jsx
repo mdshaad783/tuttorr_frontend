@@ -70,7 +70,7 @@ const logoutHandler = async() =>{
 
 
           {(userInfo?.role === "admin" || userInfo?.role === "teacher") && (
-           
+           <>
             <li className="list-none">
               <Link to="/authority/add-assignments"
                   className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
@@ -82,11 +82,10 @@ const logoutHandler = async() =>{
                   Add Assignments
               </Link>
             </li>
-          )}
-          {(userInfo?.role === "admin") && (
+          
            
             <li className="list-none">
-              <Link to="/admin/all-users"
+              <Link to="/authority/all-users"
                   className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
                     location.pathname === "/admin/all-users"
                       ? "bg-blue-50 text-blue-600" : ""
@@ -95,6 +94,7 @@ const logoutHandler = async() =>{
                   All Users
               </Link>
             </li>
+            </>
           )}
 
           
@@ -150,7 +150,7 @@ const logoutHandler = async() =>{
           ></div>
 
           {/* Sidebar */}
-          <div className="relative w-64 h-screen bg-white shadow-lg flex flex-col">
+          <div className="relative w-64 h-full bg-white shadow-lg flex flex-col">
             <div className="p-6 flex items-center justify-between border-b">
               <span className="font-bold text-xl">Tuttorr</span>
               <button onClick={() => setSidebarOpen(false)}>
