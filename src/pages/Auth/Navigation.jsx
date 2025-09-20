@@ -181,9 +181,9 @@ const logoutHandler = async() =>{
                 {(userInfo?.role === "admin" || userInfo?.role === "teacher") && (
            
             <li className="list-none">
-              <Link to="/add-assignments"
+              <Link to="/authority/add-assignments"
                   className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
-                    location.pathname === "/login"
+                    location.pathname === "/authority/add-assignments"
                       ? "bg-blue-50 text-blue-600"
                       : ""
                   }`}>
@@ -195,9 +195,9 @@ const logoutHandler = async() =>{
           {(userInfo?.role === "admin") && (
            
             <li className="list-none">
-              <Link to="/admin/all-users"
+              <Link to="/authority/all-users"
                   className={`flex items-center w-full p-3 mt-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition ${
-                    location.pathname === "admin/all-users"
+                    location.pathname === "/authority/all-users"
                       ? "bg-blue-50 text-blue-600"
                       : ""
                   }`}>
