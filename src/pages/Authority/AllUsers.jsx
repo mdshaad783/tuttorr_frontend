@@ -55,7 +55,7 @@ const AllUsers = () => {
                   
                 <td className="p-3">
                   {(user.role!=="admin")&&(
-                      <button onClick={()=>deleteHandler(user._id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                      <button onClick={()=>deleteHandler(user._id)} className="bg-red-500 cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         <FaTrash/>
                       </button>
                   )}

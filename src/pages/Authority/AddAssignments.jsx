@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useCreateAssignmentMutation } from "../../redux/api/assignmentApiSlice";
 import { toast } from "react-toastify";
+import {useNavigate} from "react-router-dom"
 
 const AddAssignments = () => {
   const [subject, setSubject] = useState('')
@@ -8,6 +9,7 @@ const AddAssignments = () => {
   const [time, setTime] = useState('')
   const [date, setDate] = useState('')
 
+  const navigate = useNavigate()
   const [createAssignment, { isLoading }] = useCreateAssignmentMutation();
 
   const submitHandler = async(e)=>{
@@ -29,6 +31,7 @@ const AddAssignments = () => {
       setDescription("");
       setDate("");
       setTime("");
+      navigate('/announcement')
       } catch (error) {
       console.error("Failed to create assignment:", error);
       toast.error(error?.data?.message);
@@ -70,7 +73,7 @@ const AddAssignments = () => {
         {/* File Upload */}
         <input type="file" className="w-full border p-2 rounded" />
 
-        <button onClick={submitHandler} className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+        <button onClick={submitHandler} className="bg-blue-600 text-white py-2 px-4 cursor-pointer rounded hover:bg-blue-700">
           Create Assignment
         </button>
       </form>

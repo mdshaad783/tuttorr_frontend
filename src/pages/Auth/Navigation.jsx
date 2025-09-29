@@ -131,7 +131,7 @@ const logoutHandler = async() =>{
           {userInfo &&( 
             <button
                   onClick={logoutHandler}
-                  className="flex items-center w-full mt-3 p-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600"
+                  className="flex cursor-pointer items-center w-full mt-3 p-3 rounded-lg text-gray-700 hover:bg-blue-100 hover:text-blue-600"
                 >
                   <AiOutlineUser className="w-5 h-5 mr-3" />
                   {userInfo.username}<AiOutlineArrowRight className="ml-2" />

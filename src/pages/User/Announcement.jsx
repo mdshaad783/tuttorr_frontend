@@ -36,13 +36,13 @@ const Announcement=()=>{
             {(userInfo.role === 'student')&&(
               <button
               // onClick={() => handleAdd(assignment._id)}
-              className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+              className="bg-green-600 cursor-pointer text-white px-3 py-1 rounded hover:bg-green-700">
                 Submit
               </button>
             )}
               <button 
               onClick={()=>deleteHandler(assignment._id)}
-              className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+              className="bg-red-600 cursor-pointer text-white px-3 py-1 rounded hover:bg-red-700">
                 Delete
               </button>
             </div>
