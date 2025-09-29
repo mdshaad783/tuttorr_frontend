@@ -73,7 +73,9 @@ const AddAssignments = () => {
         {/* File Upload */}
         <input type="file" className="w-full border p-2 rounded" />
 
-        <button onClick={submitHandler} disabled={isLoading} className="bg-blue-600 text-white py-2 px-4 cursor-pointer rounded hover:bg-blue-700">
+        <button onClick={submitHandler} disabled={isLoading} className={`bg-blue-600 text-white py-2 px-4 cursor-pointer rounded hover:bg-blue-700 ${
+      isLoading ? "opacity-50 cursor-not-allowed" : ""
+    }`}>
           Create Assignment
         </button>
       </form>
