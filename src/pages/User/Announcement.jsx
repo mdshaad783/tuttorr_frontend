@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector} from "react-redux";
 import { useGetAssignmentQuery } from "../../redux/api/assignmentApiSlice";
 import Loader from "../../components/Loader";
-  
+
 const Announcement=()=>{
   const {data:assignments, isLoading, error, refetch} = useGetAssignmentQuery()
   const { userInfo } = useSelector((state) => state.auth);
@@ -11,7 +11,7 @@ const Announcement=()=>{
   return (
     <div className="max-w-5xl mx-auto mt-14 p-6 md:mt-4">
       <h2 className="text-2xl font-bold mb-6">Announcements</h2>
-      {isLoading ? (<Loader/>): error? (<p className="text-red-500">Failed to load users</p>):(
+      {isLoading ? (<Loader/>): error? (<p className="text-red-500 text-center text-2xl">No Announcement available....</p>):(
       <div className="grid gap-6">
         {assignments &&
             assignments.map((assignment) => {
