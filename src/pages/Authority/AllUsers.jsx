@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import {FaTrash, FaPencilAlt, FaPencilRuler} from "react-icons/fa"
 import {toast} from 'react-toastify'
 import { useState } from "react";
+import Loader from "../../components/Loader";
 
 const AllUsers = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -29,6 +30,10 @@ const AllUsers = () => {
   return (
     <div className="p-6 mt-[4rem] md:mx-auto md:w-[60%] md:mt-[2rem]">
       <h2 className="text-2xl font-semibold underline mb-4">All Users</h2>
+
+      {isLoading ? ( <Loader/>): error ?(
+        <p className="text-red-500 text-center">Failed to load users</p>
+      ):(
       <table className="min-w-full border-none rounded-lg">
         <thead>
           <tr className="text-left">
@@ -60,6 +65,7 @@ const AllUsers = () => {
             ))}
         </tbody>
       </table>
+      )}
     </div>
   );
 };

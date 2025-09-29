@@ -192,7 +192,7 @@ const logoutHandler = async() =>{
               </Link>
             </li>
           )}
-          {(userInfo?.role === "admin") && (
+          {(userInfo?.role !== "student") && (
            
             <li className="list-none">
               <Link to="/authority/all-users"
